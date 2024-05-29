@@ -5,9 +5,7 @@ const users = require('../../services/users.service')
 const { productsRepository: ProductsServ } = require('../../repositories')
 
 const winstonLogger = require('../../utils/winston/devLogger.winston')
-const CONSOLER = require('../../BORRAR/consoler')
 
-const CS = 1
 
 class CartsDAO {
     async allCarts () {
