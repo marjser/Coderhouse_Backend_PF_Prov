@@ -2,7 +2,7 @@
 const emailDataGenerator = (userEmail, responseMail) => {
     const emailData = {
         from: responseMail.from,
-        to: userEmail,
+        to: userEmail.email,
         subject: responseMail.subject,
         html: responseMail.html,
         attachments: [

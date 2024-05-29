@@ -305,12 +305,8 @@ const checkUserCart = async (userId) => {
         const LS = 0
         const cartId = await Users.checkUserCartDao(userId)
 
-        CONSOLER(CS, cartId, LS)
-
         if (!cartId) {return null}
         const cartData = await Carts.cartFindId(cartId)
-
-        CONSOLER(CS, cartData, LS)
         
         return cartData
     } catch (error) {
