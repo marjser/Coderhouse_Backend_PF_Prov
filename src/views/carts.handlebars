@@ -1,0 +1,60 @@
+<div>
+
+<p id="dataJSON" style="display: none;">{{dataJSON}}</p>
+
+<h3>Mi Carrito</h3>
+  {{#if user}}
+    <a href="/profile/{{user.email}}"><button>Ver perfil</button></a>
+  {{/if}}
+
+  <a href="/products"><button>Volver a productos</button></a>
+  <a href="/products"><button id="deleteCart" name={{cartId}} >Eliminar carrito</button></a>
+  {{!-- <a href="/products"><button id="deleteCart" name={{cartId}} >Terminar compra</button></a> --}}
+
+  <h4 id="totalCart"></h4>
+  {{!-- <a href="/carts/purchase/{{cartId}}"><button>Finalizar compra</button></a> --}}
+  <button id="purchaseButton">Finalizar compra</button>
+
+<h4>Productos:</h4>
+
+<h3>Container Nuevo</h3>
+<div id="newCartContainer"></div>
+
+<h3>Container Viejo</h3>
+<div id="cartContainer" class={{_id}}>
+	{{#each cartDocs}}
+    <div id={{this.prodId}} class="productContainer">
+      <p>Title: {{this.title}}</p>
+      <p>Description: {{this.description}}</p>
+      <p>Code: {{this.code}}</p>
+      <p>Stock: {{this.stock}}</p>
+      <p>Category: {{this.category}}</p>
+      <p id="prodQuant" title={{this.quantity}}>Quantity: {{this.quantity}}</p>
+      <p id="prodPrice" title={{this.price}}>Price: ${{this.price}}</p>
+      <p id="total" name={{this.prodId}}></p>
+
+
+    <form id="quantity" >
+      <input type="number" id="quantityInput"  name={{this.prodId}} min="1">
+
+
+
+      <button id="addQuant"  name={{this.prodId}} >Agregar cantidad</button>
+    </form>
+      
+
+
+      <button class='deleteProdFromCart' name={{this._id}}  >Eliminar del carrito</button>
+      <p>-----------------------------------------</p>
+
+    </div>
+{{/each}}
+</div>
+
+
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='/js/carts.js'></script>

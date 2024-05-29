@@ -1,0 +1,46 @@
+<p id="jsonData" style="display: none;">{{jsonData}}</p>
+
+<h3>Perfil de {{user.first_name}} {{user.last_name}}</h2>
+
+
+<p>Nombre: {{user.first_name}}</p>
+<p>Apellido: {{user.last_name}}</p>
+<p>Edad: {{user.age}}</p>
+<p>email: {{user.email}}</p>
+<p>phoneNumber: </p>
+<p>Adress: </p>
+<p>rol: {{user.role}}</p>
+
+<div id="form">
+<form action="" method="post" enctype="multipart/form-data">
+<p>Actualizar foto de perfil</p>
+  Seleccionar imagen:
+  <input type="file" name="file" id="userIdentificationUpload" required> 
+
+  <input type="submit" value="Subir foto" name="submit" id="submitButton">
+
+</form>
+
+</div>
+
+{{#if user.cart}}
+  <p>Hay un carrito creado</p>
+<a href="/carts/{{user.cart}}"><button>Ver carrito</button></a>
+{{/if}}
+
+<button id="premiumUser">Pasar a usuario premium</button>
+
+<p id="lastSaleInput">{{userSales}}</p>
+<div id="profileSales">
+<h4>Ultima compra: </h4>
+</div>
+<div id="oldSales"></div>
+
+
+
+
+<a href="/products"><button>Ver productos</button></a>
+
+<a href="/auth/logout"><button>Cerrar Sesión</button></a>
+
+<script src="/js/profile.js"></script>

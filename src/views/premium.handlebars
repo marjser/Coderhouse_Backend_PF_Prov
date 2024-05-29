@@ -1,0 +1,51 @@
+<p id="jsonData" style="display: none;">{{jsonData}}</p>
+
+<h2>Solicitud para usuario Premium</h2>
+
+<h3 id="title"></h3>
+
+<h4>Debes subir la siguiente documentación:</h4>
+
+<div id="form">
+    <p>AGREGAR REQUIRED</p>
+<div>
+
+</div>
+<div id="divFormId">
+  <form action="" method="post" id="formId" enctype="multipart/form-data">
+    <p>Identificación:</p>
+    Seleccionar imagen:
+    <input type="file" name="userIdentification" id="userIdentificationUpload" required> 
+    <input type="submit" value="Upload Documentation" name="submit" id="userIdentificationButton">  
+  </form>
+</div>
+
+<div id="divFormAddress">
+  <form action=""  id="formAddress" method="post" enctype="multipart/form-data">
+  <p>Comprobante de domicilio:</p>
+    Seleccionar imagen:
+    <input type="file" name="userAddress" id="userAdressUpload" required>
+    <input type="submit" value="Upload Documentation" name="submit" id="submitButton">
+</form>
+</div>
+
+<div id="divFormAccount">
+  <form action="" id="formAccount" method="post" enctype="multipart/form-data" required>
+  <p>Comprobante de estado de cuenta:</p>
+    Seleccionar imagen:
+    <input type="file" name="userAccount" id="userCountUpload">
+    <input type="submit" value="Upload Documentation" name="submit" id="submitButton">
+  </form>
+</div>
+
+<div id="premiumConfirm">
+  <button id="premiumButton">Confirmar documentación</button>
+</div>
+
+
+</div>
+
+
+
+
+<script src="/js/premium.js"></script>

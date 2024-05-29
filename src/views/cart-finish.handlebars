@@ -1,0 +1,28 @@
+
+<h3>Estas a punto de terminar tu compra {{userData.first_name}}</h4>
+
+  <p id="jsonData" style="display: none;" >{{jsonData}}</p>
+
+<a href="/carts/{{cartId}}"><button>Volver al carrito</button></a>
+
+<h4>Tu carrito contiene:</h5>
+  <p id="cartJSON">{{cartSend}}</p>
+<div id="cartContainer" class={{_id}}>
+
+    
+
+    </div>
+
+    <h4 id="totalCart">Total: </h4>
+   
+    <button id="purchase">Comprar</button>
+      <p>-----------------------------------------</p>
+
+    <h3>Datos del usuario</h3>
+    <p>Cliente: {{userData.last_name}}, {{userData.first_name}}</p>
+    <p>Email: {{userData.email}}</p>
+    <p>Nro de contacto: </p>
+
+ <div id="container"></div>
+
+    <script src='/js/cart-finish.js'></script>

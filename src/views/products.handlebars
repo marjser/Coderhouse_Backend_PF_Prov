@@ -1,0 +1,176 @@
+<div>
+  <p id="jsonData" style="display: none;" >{{jsonData}}</p>
+
+<div class="admin" style="display: none;">
+  <h3>ADMIN PROFILE</h2>
+</div>
+
+  
+
+
+    {{#if user}}
+  <div id="userData" title={{user.id}} >
+
+    <p class="client">Bienvenido/a {{user.first_name}} {{user.last_name}}</p>
+    <a href="/profile/{{user.email}}"><button class="client">Ver perfil</button></a>
+    <a href="/chat"><button>Ingresar al chat</button></a>
+  </div>
+  
+  <br>
+  
+  <form action="" id="logOutForm">
+      <button type="submit">Cerrar Sesión</button>
+  </form>
+  {{/if}}
+  
+  {{#unless user}}
+<div>
+  <a href="/login"><button>Ingresar con tu cuenta</button></a>
+  <a href="/signup"><button>Crear Cuenta</button></a>
+</div>
+  {{/unless}}
+
+
+<div id="addProductDiv" class="admin" style="display: none;">
+  <h3>Add product</h3>
+  <div id="newProductInfo">
+    <form action="">
+      <label for="newProdTitle">Nombre Producto: </label>
+      <input type="text" id="newProdTitle"  ><br>
+      <label for="newProdCode">Código Producto: </label>
+      <input type="text" id="newProdCode"  ><br>
+      <label for="newProdDes">Descripción Producto: </label>
+      <input type="text" id="newProdDes"  ><br>
+      <label for="newProdPrice">Precio Producto: </label>
+      <input type="number" id="newProdPrice"  ><br>
+      <label for="newProdStock">Stock Producto: </label>
+      <input type="number" id="newProdStock"  ><br>
+      <label for="newProdCat">Categoría Producto: </label>
+      <input type="text" id="newProdCat"  ><br>
+      <label for="newProdImage">Imagen Producto: </label>
+      <input type="text" id="newProdImage"  ><br>
+
+      <button  id="newProdAdd">Ingresar nuevo producto</button>
+    </form>
+
+    <div>
+      <h3>Agregar Stock a producto</h3>
+      <form id="addProdStock" action="">
+        <label for="newProdTitle">Nombre Producto: </label>
+        <input type="text" id="prodStockId"><br>
+        <label for="newProdStock">Stock Producto: </label>
+        <input type="number" id="updateProdStock"  ><br>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="page" title={{page}}>
+  <p id="totalPages" title={{totalPages}}>Página {{page}} de {{totalPages}}</p>
+</div>
+
+
+{{#if hasPrevPage}}
+	<a href="#" title={{prevPage}} id="prevPageButton"><button>Página anterior</button></a>
+{{/if}}
+
+{{#if hasNextPage}}
+	<a href="#" title={{nextPage}} id="nextPageButton"><button>Siguiente página</button></a>
+{{/if}}
+
+<div id="limit-container">
+    <form id="limit" >
+      <input type="number" id="limitInput"  min="1" max="10">
+
+      <button id="limitInputButton"  >Limitar la cantidad de resultados</button>
+    </form>
+
+</div>
+  
+<div id="searchContainer">
+    <form id="findProduct" method="get" >
+      <label for="findProduct">Buscar producto:</label><br>
+      <input type="text" id="prodTitle"  >
+
+      <button  id="seachQuery">Buscar</button>
+    </form>
+
+</div>
+
+
+<div id="cartOptions" class={{cartId}} >
+  
+
+</div>
+
+{{#if cartId}}
+    <button id="deleteCart" name={{cartId}} >Eliminar carrito</button>
+{{/if}}
+
+{{#unless cartId}}
+{{/unless}} 
+
+
+<div>
+  <p>Ordenar por:</p>
+
+	<button id="sortAscButton" >Mayor precio</button>
+	<button id="sortDescButton" >Menor precio</button>
+  <div id="sortcancelButton"></div>
+
+
+</div>
+
+<div>
+  {{#unless cat}}
+  <p>Filtrar por:</p>
+	<a href="/products?page={{page}}&cat=fijación"><button>Fijación</button></a>
+	<a href="/products?page={{page}}&cat=herramientas"><button>Herramientas</button></a>
+{{/unless}}
+
+{{#if cat}}
+  <p>Filtrado por {{cat}}</p>
+	<a href="/products?page={{page}}"><button>Eliminar filtro</button></a><br>
+{{/if}}
+
+
+
+</div>
+
+<h3 id="productsContainerTitle">Productos disponibles:</h3>
+<div id="newProducContainer"></div>
+
+
+{{!-- <h3>Container Viejo</h3> --}}
+<div id="productsContainer" class={{cartId}} style="display: none;">
+	{{!-- {{#each payload }}
+    <div >
+      <p class="admin">{{this.prodId}}</p>
+      <p>Title: {{this.title}}</p>
+      <p>Description: {{this.description}}</p>
+      <p>Code: {{this.code}}</p>
+      <p>Price: ${{this.price}}.00</p>
+      <p>Stock: {{this.stock}}</p>
+      <p>Category: {{this.category}}</p>
+      <button name={{this.id}} class="AddProdToCart; client">Agregar al carrito</button>
+
+    </div>
+
+	{{/each}} --}}
+</div>
+
+
+{{#if hasPrevPage}}
+	<a href="/products?page={{prevPage}}"><button>Página anterior</button></a>
+{{/if}}
+{{#if hasNextPage}}
+	<a href="/products?page={{nextPage}}"><button>Siguiente página</button></a>
+{{/if}}
+</div>
+
+
+<script src='/js/products.js'></script>
+
+
+

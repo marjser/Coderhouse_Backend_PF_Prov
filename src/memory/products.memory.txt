@@ -1,0 +1,1 @@
+[{"title":"destornillador plano","description":"Destornillador plano con mango de goma","code":"TOO123","price":30,"stock":35000,"category":"herramientas","id":"3d167a74-c240-4c5c-b89e-f67636c0b55b","status":true}]
