@@ -6,8 +6,6 @@ const {usersRepository: Users} = require('../repositories')
 
 
 
-const CS = 0
-
 const Carts = new CartsDAO()
 
 // FUNCIÓN PARA OBTENER TODOS LOS PRODUCTOS EN EL CARRITO
@@ -27,8 +25,6 @@ const cartFindId = async (id) => {
     try {
 
         const userCart = await Carts.cartId(id)
-
-        CONSOLER(CS, userCart)
 
         if (!userCart) {
             return null
